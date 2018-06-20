@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>LOGIN PAGE</h2>
+
+    <form method='POST'>
+      {% csrf_token %}
+
+      {% if form.errors %}
+      <h5>valami nem okés</h5>
+      {%endif%}
+      {% if next %}
+      <h5>nem jöhetsz az oldalra</h5>
+      {%endif%}
+      <p>Username: {{form.username}}</p>
+      <p>password:{{form.password}} </p>
+      <input type="submit" value="Login">
+      <input type="hidden" name="next" value={{next}}>
+
+
+    </form>
+
+  </body>
+</html>
